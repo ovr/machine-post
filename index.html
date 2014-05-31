@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .memory {
+            float: left;
+            overflow: hidden;
+        }
+        .memory .cell {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            float: left;
+            border: 2px solid #000000;
+        }
+        .memory .cell.active {
+            background-color: #00ffff;
+        }
+        .memory .cell.active:before {
+            content: 'V';
+            font-size: 35px;
+        }
+        .memory .cell.current {
+            border: 2px solid red;
+        }
+        .positionTracker .left,
+        .positionTracker .right {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .positionTracker {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .positionTracker .left,
+        .positionTracker .right,
+        .positionTracker .memory {
+            float: left;
+        }
+        .positionTracker .right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="positionTracker">
+        <div class="left">
+            Влево
+        </div>
+        <div class="memory">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell active"></div>
+            <div class="cell current"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="right">
+            Вправо
+        </div>
+    </div>
+    <table id="commands">
+        <tr>
+            <td>Номер</td>
+            <td>Команда</td>
+            <td>Отсылка</td>
+            <td>Комментарии</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+                <select name="command[]">
+                    <option value="0" selected></option>
+                    <option><-</option>
+                    <option>-></option>
+                    <option>V метка</option>
+                    <option>X Удалить</option>
+                    <option>? Переход</option>
+                    <option>? Переход</option>
+                    <option>! Стоп</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
