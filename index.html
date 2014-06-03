@@ -1,70 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-	<script src="/src/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="/src/vendor/underscore/underscore.js"></script>
-	<script src="/src/vendor/backbone/backbone.js"></script>
-
-	<script src="/src/lib/ns.js"></script>
-	<script src="/src/app/views/blocks/CommandsTable.js"></script>
-	<script src="/src/app/views/blocks/MemoryPanel.js"></script>
-	<script src="/src/app/views/blocks/PositionPanel.js"></script>
-
-	<script src="/src/app/models/Command.js"></script>
-	<script src="/src/app/models/Commands.js"></script>
-	<script src="/src/app/services/Commands.js"></script>
-
-	<script src="/src/app/views/index/AboutModal.js"></script>
-	<script src="/src/app/views/index/Index.js"></script>
-
-	<script src="/src/app/views/Layout.js"></script>
-	<script src="/src/app/App.js"></script>
-
-	<link href="/css/machine.css" media="all" rel="stylesheet" type="text/css">
-	<link href="/src/vendor/bootstrap/dist/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Машина Поста</title>
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/pygment_trac.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
 <body>
-	<div id="post-machine" class="mt20">
-		<div class="positionTracker mb20" id="inputPositionBlock">
-			<div class="left">
-				<button class="btn btn-primary">Влево</button>
-			</div>
-			<div class="memory-block"></div>
-			<div class="right">
-				<button class="btn btn-primary">Вправо</button>
-			</div>
-		</div>
-		<div class="central-box">
-			<div class="action-bar mb20">
-				<button class="btn btn-default pull-left mr10" id="addRow">+</button>
-				<button class="btn btn-success pull-left mr10" id="action">Пуск</button>
-				<!--<button class="btn btn-info">Шаг вперед</button>-->
-				<select id="workBenchIntervalTime" class="form-control">
-					<option value="10">Сверх быстро</option>
-					<option value="100" selected>Быстро</option>
-					<option value="500">Нормально</option>
-					<option value="1000">Медлено</option>
-				</select>
-			</div>
-			<table id="commands" class="mb20 table">
-				<thead>
-					<tr>
-						<th>Номер</th>
-						<th>Команда</th>
-						<th>Отсылка</th>
-						<th>Комментарии</th>
-						<th>&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-			<div class="positionTracker mb20" id="outputPositionBlock">
-				<div class="memory-block"></div>
-			</div>
-		</div>
-	</div>
+<div class="wrapper">
+	<header>
+		<h1>Машина Поста</h1>
+		<p class="view">
+			<a href="https://github.com/ovr/machine-post">View the Project on GitHub <small>ovr/machine-post</small></a>
+		</p>
+		<ul>
+			<li><a href="https://github.com/ovr/machine-post/zipball/master">Download <strong>ZIP File</strong></a></li>
+			<li><a href="https://github.com/ovr/machine-post/tarball/master">Download <strong>TAR Ball</strong></a></li>
+			<li><a href="https://github.com/ovr/machine-post">View On <strong>GitHub</strong></a></li>
+		</ul>
+	</header>
+	<section>
+		<h3>
+			<a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Машина Поста.
+		</h3>
+		На свой сайт вы можете добавить машину через 3 способа:
+
+		<p>
+			Через кнопку ссылку на офф сайт машины:
+			<br />
+			<a href="post.html">Машина поста</a>
+		</p>
+
+		<p>
+			Через кнопку для открытие popup:
+			<br />
+			<button onclick="javascript:window.open('post.html', 'Машина Поста', 'status=no,height=600,width=1000,resizable=no,toolbar=no,menubar=no,scrollbars=no,location=no,directories=no');">Открыть машину поста в popup</button>
+		</p>
+	</section>
+	<footer>
+		<p>
+			This project is maintained by <br />
+			<a href="https://github.com/ovr">Dmitry Patsura@ovr</a>
+		</p>
+		<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+	</footer>
+</div>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-20503308-2', 'github.com');
+	ga('send', 'pageview');
+</script>
 </body>
 </html>
