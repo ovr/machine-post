@@ -15,11 +15,11 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
 
         '<div class="positionTracker mb20">' +
             '<div class="left">' +
-                '<button>Влево</button>' +
+                '<button class="btn btn-primary">Влево</button>' +
             '</div>' +
             '<div id="inputMemoryBlock"></div>' +
             '<div class="right">'+
-                '<button>Вправо</button>' +
+                '<button class="btn btn-primary">Вправо</button>' +
             '</div>' +
         '</div>';
 

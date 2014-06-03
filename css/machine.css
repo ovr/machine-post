@@ -14,7 +14,8 @@
 }
 .memory .cell.active:before {
 	content: 'V';
-	font-size: 35px;
+	font-size: 30px;
+	line-height: 40px;
 }
 .memory .cell.current {
 	border: 2px solid red;
@@ -43,6 +44,9 @@
 .central-box {
 	float: left;
 	margin-left: 100px;
+}
+.mt20 {
+	margin-top: 20px;
 }
 .mb20 {
 	margin-bottom: 20px;
