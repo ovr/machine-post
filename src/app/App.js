@@ -1,3 +1,5 @@
 $( document ).ready(function() {
-    new App.views.Layout();
+    window.app = {
+        layout: new App.views.Layout()
+    };
 });

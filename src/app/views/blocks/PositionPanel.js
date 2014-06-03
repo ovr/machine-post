@@ -10,25 +10,14 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
         this.$el = opts.$el;
         this.render();
     },
+    prev: function() {
+        this.onLeftButtonClick();
+    },
+    next: function() {
+        this.onRightButtonClick();
+    },
     render: function() {
-        var html = '' +
-
-        '<div class="positionTracker mb20">' +
-            '<div class="left">' +
-                '<button class="btn btn-primary">Влево</button>' +
-            '</div>' +
-            '<div id="inputMemoryBlock"></div>' +
-            '<div class="right">'+
-                '<button class="btn btn-primary">Вправо</button>' +
-            '</div>' +
-        '</div>';
-
-        this.$el = this.$el.prepend(html);
-
-        this.$memoryPanel = new App.views.blocks.MemoryPanel({$el: $('#inputMemoryBlock')});
-        this.$memoryPanel.render();
-
-        this.setCurrentByPosition(this.currentPosition);
+        this.$memoryPanel = new App.views.blocks.MemoryPanel({$el: this.$('.memory-block')});
     },
     onMemoryCellClick: function(event) {
         var $currentTarger = this.$(event.currentTarget);
@@ -56,7 +45,8 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
         }
     },
     setCurrentByPosition: function(positionId) {
-        this.$memoryPanel.$el.find('.memory div.current').removeClass('current');
+        this.$memoryPanel.unCurrentAll();
+        this.currentPosition = positionId;
         this.$memoryPanel.$el.find('.memory div:eq('+(positionId)+')').addClass('current')
     }
 }));

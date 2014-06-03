@@ -8,11 +8,17 @@
 	<script src="/src/vendor/backbone/backbone.js"></script>
 
 	<script src="/src/lib/ns.js"></script>
+	<script src="/src/app/views/blocks/CommandsTable.js"></script>
 	<script src="/src/app/views/blocks/MemoryPanel.js"></script>
 	<script src="/src/app/views/blocks/PositionPanel.js"></script>
 
+	<script src="/src/app/models/Command.js"></script>
+	<script src="/src/app/models/Commands.js"></script>
+	<script src="/src/app/services/Commands.js"></script>
+
 	<script src="/src/app/views/index/AboutModal.js"></script>
 	<script src="/src/app/views/index/Index.js"></script>
+
 	<script src="/src/app/views/Layout.js"></script>
 	<script src="/src/app/App.js"></script>
 
@@ -21,11 +27,20 @@
 </head>
 <body>
 	<div id="post-machine" class="mt20">
+		<div class="positionTracker mb20" id="inputPositionBlock">
+			<div class="left">
+				<button class="btn btn-primary">Влево</button>
+			</div>
+			<div class="memory-block"></div>
+			<div class="right">
+				<button class="btn btn-primary">Вправо</button>
+			</div>
+		</div>
 		<div class="central-box">
 			<div class="action-bar mb20">
-				<button class="btn btn-default">+</button>
-				<button class="btn btn-success">Пуск</button>
-				<button class="btn btn-info">Шаг вперед</button>
+				<button class="btn btn-default" id="addRow">+</button>
+				<button class="btn btn-success" id="action">Пуск</button>
+				<!--<button class="btn btn-info">Шаг вперед</button>-->
 			</div>
 			<table id="commands" class="mb20">
 				<tr>
@@ -39,14 +54,59 @@
 					<td>1</td>
 					<td>
 						<select name="command[]">
-							<option value="0" selected></option>
-							<option><-</option>
-							<option>-></option>
-							<option>V метка</option>
-							<option>X Удалить</option>
-							<option>? Переход</option>
-							<option>? Переход</option>
-							<option>! Стоп</option>
+							<option value="0"></option>
+							<option value="1" selected><-</option>
+							<option value="2">-></option>
+							<option value="3">V метка</option>
+							<option value="4">X Удалить</option>
+							<option value="5">? Переход</option>
+							<option value="6">! Стоп</option>
+						</select>
+					</td>
+					<td>
+						<input type="text" class="toRow">
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<button class="btn btn-danger delete">-</button>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<select name="command[]">
+							<option value="0"></option>
+							<option value="1"><-</option>
+							<option value="2">-></option>
+							<option value="3" selected>V метка</option>
+							<option value="4">X Удалить</option>
+							<option value="5">? Переход</option>
+							<option value="6">! Стоп</option>
+						</select>
+					</td>
+					<td>
+						<input type="text" class="toRow">
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<button class="btn btn-danger delete">-</button>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<select name="command[]">
+							<option value="0"></option>
+							<option value="1" selected><-</option>
+							<option value="2">-></option>
+							<option value="3">V метка</option>
+							<option value="4">X Удалить</option>
+							<option value="5">? Переход</option>
+							<option value="6">! Стоп</option>
 						</select>
 					</td>
 					<td>
@@ -56,12 +116,35 @@
 						<input type="text">
 					</td>
 					<td>
-						<button class="btn btn-danger">-</button>
+						<button class="btn btn-danger delete">-</button>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<select name="command[]">
+							<option value="0"></option>
+							<option value="1"><-</option>
+							<option value="2">-></option>
+							<option value="3" selected>V метка</option>
+							<option value="4">X Удалить</option>
+							<option value="5">? Переход</option>
+							<option value="6">! Стоп</option>
+						</select>
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<button class="btn btn-danger delete">-</button>
 					</td>
 				</tr>
 			</table>
-			<div id="outputMemoryPanel">
-
+			<div class="positionTracker mb20" id="outputPositionBlock">
+				<div class="memory-block"></div>
 			</div>
 		</div>
 	</div>
