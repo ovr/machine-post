@@ -30,10 +30,10 @@ ns('App.views.blocks.MemoryPanel', Backbone.View.extend({
         this.$el.html(html);
     },
     active: function(positionId) {
-        this.$('.cell:eq(' + positionId + ')').addClass('active');
+        this.getCell(positionId).addClass('active');
     },
     removeActive: function(positionId) {
-        this.$('.cell:eq(' + positionId + ')').removeClass('active');
+        this.getCell(positionId).removeClass('active');
     },
     unActive: function() {
         this.$('.active').removeClass('active');
@@ -42,6 +42,6 @@ ns('App.views.blocks.MemoryPanel', Backbone.View.extend({
         this.$('.current').removeClass('current');
     },
     getCell: function(positionId) {
-        return this.$el.find('.memory div:eq('+(positionId)+')');
+        return this.$el.find('.cell:eq('+(positionId)+')');
     }
 }));
