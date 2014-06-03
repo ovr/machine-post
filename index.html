@@ -15,60 +15,9 @@
 	<script src="/src/app/views/index/Index.js"></script>
 	<script src="/src/app/views/Layout.js"></script>
 	<script src="/src/app/App.js"></script>
-    <style>
-        .memory {
-            float: left;
-            overflow: hidden;
-        }
-        .memory .cell {
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            float: left;
-            border: 2px solid #000000;
-        }
-        .memory .cell.active {
-            background-color: #00ffff;
-        }
-        .memory .cell.active:before {
-            content: 'V';
-            font-size: 35px;
-        }
-        .memory .cell.current {
-            border: 2px solid red;
-        }
-        .positionTracker .left,
-        .positionTracker .right {
-            width: 100px;
-            height: 40px;
-            line-height: 40px;
-        }
 
-        .positionTracker {
-            float: left;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .positionTracker .left,
-        .positionTracker .right,
-        .positionTracker .memory {
-            float: left;
-        }
-        .positionTracker .right {
-            text-align: right;
-        }
-		.central-box {
-			float: left;
-			margin-left: 100px;
-		}
-		.mb20 {
-			margin-bottom: 20px;
-		}
-		#commands {
-			width: 100%;
-		}
-    </style>
+	<link href="/css/machine.css" media="all" rel="stylesheet" type="text/css">
+	<link href="/src/vendor/bootstrap/dist/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="post-machine">
