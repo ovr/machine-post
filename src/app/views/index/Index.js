@@ -107,7 +107,7 @@ ns('App.view.Index', Backbone.View.extend({
          * Убрать данный подсчет после дев версии
          * @type {number}
          */
-        this.rowCounts = this.$commands.table.$el.find('tr').length-1;
+        this.rowCounts = this.$commands.table.$el.find('tr').length;
     },
     syncMemoryPanels: function() {
         this.$outputPositionPanel.setCurrentByPosition(this.$inputPositionPanel.currentPosition);
@@ -125,7 +125,7 @@ ns('App.view.Index', Backbone.View.extend({
         this.status = true;
 
         this.$actionButton.html('Стоп');
-        this.currentRow = 1;
+        this.currentRow = this.$commands.table.$el.find('tbody tr:first').attr('class').split('_')[1];
         this.recountRows();
         this.syncMemoryPanels();
         this.workBench = setInterval($.proxy(this.workBenchProcess, this), this.workBenchIntervalTime);
