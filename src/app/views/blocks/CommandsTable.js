@@ -11,9 +11,12 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
         $(event.currentTarget).parent().parent().remove();
     },
     getRow: function(row) {
-        return this.$el.find('tr:eq(' + row + ')');
+        return this.$el.find('tr.row_' + row);
     },
     addRow: function() {
+        window.app.layout.$index.lastNumber++;
+        var id = window.app.layout.$index.lastNumber;
+
         var $select = $('<select/>').attr({class: 'form-control'});
 
         $.each(this.$commands.getList(), function(index, item) {
@@ -25,8 +28,8 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
 
         window.app.layout.$index.rowCounts++;
 
-        this.$el.append($('<tr/>').append(
-            $('<td/>', {text: window.app.layout.$index.rowCounts}),
+        this.$el.append($('<tr/>').attr({class: 'row_' + id}).append(
+            $('<td/>', {text: window.app.layout.$index.lastNumber}),
             $('<td/>').append($select),
             $('<td/>').append($('<input>').attr({type: 'text', class: 'form-control toRow'})),
             $('<td/>').append($('<input>').attr({type: 'text', class: 'form-control comment'})),

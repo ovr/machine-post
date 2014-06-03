@@ -17,6 +17,7 @@ ns('App.view.Index', Backbone.View.extend({
      */
     currentRow: 1,
     rowCounts: 1,
+    lastNumber: 0,
     workBench: false,
     workBenchIntervalTime: 100,
     onWorkBenchIntervalTimeChange: function() {
