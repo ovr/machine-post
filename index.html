@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+	<script src="/src/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="/src/vendor/underscore/underscore.js"></script>
 	<script src="/src/vendor/backbone/backbone.js"></script>
+
 	<script src="/src/lib/ns.js"></script>
+	<script src="/src/app/views/blocks/MemoryPanel.js"></script>
+	<script src="/src/app/views/blocks/PositionPanel.js"></script>
+
 	<script src="/src/app/views/index/AboutModal.js"></script>
 	<script src="/src/app/views/index/Index.js"></script>
 	<script src="/src/app/views/Layout.js"></script>
+	<script src="/src/app/App.js"></script>
     <style>
         .memory {
             float: left;
@@ -52,61 +58,63 @@
         .positionTracker .right {
             text-align: right;
         }
+		.central-box {
+			float: left;
+			margin-left: 100px;
+		}
+		.mb20 {
+			margin-bottom: 20px;
+		}
+		#commands {
+			width: 100%;
+		}
     </style>
 </head>
 <body>
-    <div class="positionTracker">
-        <div class="left">
-            Влево
-        </div>
-        <div class="memory">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell active"></div>
-            <div class="cell active current"></div>
-            <div class="cell active"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
-        <div class="right">
-            Вправо
-        </div>
-    </div>
-    <table id="commands">
-        <tr>
-            <td>Номер</td>
-            <td>Команда</td>
-            <td>Отсылка</td>
-            <td>Комментарии</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>
-                <select name="command[]">
-                    <option value="0" selected></option>
-                    <option><-</option>
-                    <option>-></option>
-                    <option>V метка</option>
-                    <option>X Удалить</option>
-                    <option>? Переход</option>
-                    <option>? Переход</option>
-                    <option>! Стоп</option>
-                </select>
-            </td>
-        </tr>
-    </table>
+	<div id="post-machine">
+		<div class="central-box">
+			<div class="action-bar mb20">
+				<button>+</button>
+				<button>Пуск</button>
+				<button>Шаг вперед</button>
+			</div>
+			<table id="commands" class="mb20">
+				<tr>
+					<td>Номер</td>
+					<td>Команда</td>
+					<td>Отсылка</td>
+					<td>Комментарии</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<select name="command[]">
+							<option value="0" selected></option>
+							<option><-</option>
+							<option>-></option>
+							<option>V метка</option>
+							<option>X Удалить</option>
+							<option>? Переход</option>
+							<option>? Переход</option>
+							<option>! Стоп</option>
+						</select>
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<input type="text">
+					</td>
+					<td>
+						<button>-</button>
+					</td>
+				</tr>
+			</table>
+			<div id="outputMemoryPanel">
+
+			</div>
+		</div>
+	</div>
 </body>
 </html>
