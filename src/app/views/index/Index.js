@@ -3,7 +3,8 @@ ns('App.view.Index', Backbone.View.extend({
         'change .load': 'onLoadClick',
         'click .about': 'onAboutClick',
         'click #action': 'onActionClick',
-        'click #addRow': 'onAddRowClick'
+        'click #addRow': 'onAddRowClick',
+        'change #workBenchIntervalTime': 'onWorkBenchIntervalTimeChange'
     },
     /**
      * Флаг о работе
@@ -17,11 +18,15 @@ ns('App.view.Index', Backbone.View.extend({
     currentRow: 1,
     rowCounts: 1,
     workBench: false,
+    workBenchIntervalTime: 100,
+    onWorkBenchIntervalTimeChange: function() {
+        this.workBenchIntervalTime = $('#workBenchIntervalTime').val();
+    },
     onAddRowClick: function() {
-        this.rowCounts++;
         this.$commands.table.addRow();
     },
     initialize: function() {
+        this.onWorkBenchIntervalTimeChange();
         this.$inputPositionPanel = new App.views.blocks.PositionPanel({$el: this.$el.find('#inputPositionBlock'), actionButtons: true});
         this.$inputPositionPanel.setCurrentByPosition(this.$inputPositionPanel.currentPosition);
 
@@ -33,6 +38,10 @@ ns('App.view.Index', Backbone.View.extend({
         this.recountRows();
 
         this.$actionButton = this.$('#action');
+    },
+    globalInit: function() {
+        this.$commands.table.addRow();
+        this.$commands.table.addRow();
     },
     onActionClick: function(e) {
         if (this.status) {
@@ -58,6 +67,22 @@ ns('App.view.Index', Backbone.View.extend({
                 this.$outputPositionPanel.$memoryPanel.removeActive(this.$outputPositionPanel.currentPosition);
                 break;
             case 5:
+                if ($command.get('toRow') == undefined || $command.get('toRow') == '') {
+                    alert('Невозможный переход');
+                    this.pause();
+                }
+
+                var inputArray = $command.get('toRow').split(',');
+
+                var isActive = this.$outputPositionPanel.$memoryPanel.getCell(this.$outputPositionPanel.currentPosition).hasClass('active');
+                if (inputArray.length == 2) {
+                    if (isActive) {
+                        this.currentRow = inputArray[1];
+                    } else {
+                        this.currentRow = inputArray[0];
+                    }
+                }
+
                 return true;
                 break;
             case 6:
@@ -66,8 +91,8 @@ ns('App.view.Index', Backbone.View.extend({
         }
 
         if ($command.get('toRow') != '') {
+            console.log($command.get('toRow'));
             this.currentRow = $command.get('toRow');
-            console.log(this.currentRow);
         } else {
             this.currentRow++;
         }
@@ -99,9 +124,10 @@ ns('App.view.Index', Backbone.View.extend({
         this.status = true;
 
         this.$actionButton.html('Стоп');
+        this.currentRow = 1;
         this.recountRows();
         this.syncMemoryPanels();
-        this.workBench = setInterval($.proxy(this.workBenchProcess, this), 1000);
+        this.workBench = setInterval($.proxy(this.workBenchProcess, this), this.workBenchIntervalTime);
     },
     pause: function() {
         this.status = false;

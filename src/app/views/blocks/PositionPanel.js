@@ -47,6 +47,6 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
     setCurrentByPosition: function(positionId) {
         this.$memoryPanel.unCurrentAll();
         this.currentPosition = positionId;
-        this.$memoryPanel.$el.find('.memory div:eq('+(positionId)+')').addClass('current')
+        this.$memoryPanel.$el.find('.memory div:eq('+(positionId)+')').addClass('current');
     }
 }));

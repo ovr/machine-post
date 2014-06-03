@@ -51,6 +51,15 @@
 .mb20 {
 	margin-bottom: 20px;
 }
+#commands .delete {
+	float: right;
+}
 #commands {
 	width: 100%;
+}
+#workBenchIntervalTime {
+	width: 150px;
+}
+.mr10 {
+	margin-right: 10px;
 }

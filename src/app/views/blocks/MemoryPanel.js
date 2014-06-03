@@ -40,5 +40,8 @@ ns('App.views.blocks.MemoryPanel', Backbone.View.extend({
     },
     unCurrentAll: function() {
         this.$('.current').removeClass('current');
+    },
+    getCell: function(positionId) {
+        return this.$el.find('.memory div:eq('+(positionId)+')');
     }
 }));

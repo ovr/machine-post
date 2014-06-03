@@ -14,7 +14,7 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
         return this.$el.find('tr:eq(' + row + ')');
     },
     addRow: function() {
-        var $select = $('<select/>');
+        var $select = $('<select/>').attr({class: 'form-control'});
 
         $.each(this.$commands.getList(), function(index, item) {
             $('<option/>', {
@@ -23,11 +23,13 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
             }).appendTo($select);
         });
 
+        window.app.layout.$index.rowCounts++;
+
         this.$el.append($('<tr/>').append(
-            $('<td/>', {text: app.layout.$index.rowCounts}),
+            $('<td/>', {text: window.app.layout.$index.rowCounts}),
             $('<td/>').append($select),
-            $('<td/>').append($('<input>').attr({type: 'text', class: 'toRow'})),
-            $('<td/>').append($('<input>').attr({type: 'text'})),
+            $('<td/>').append($('<input>').attr({type: 'text', class: 'form-control toRow'})),
+            $('<td/>').append($('<input>').attr({type: 'text', class: 'form-control comment'})),
             $('<td/>').append($('<button>').attr({class: 'btn btn-danger delete'}).html('-'))
         ));
     }

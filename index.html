@@ -38,110 +38,28 @@
 		</div>
 		<div class="central-box">
 			<div class="action-bar mb20">
-				<button class="btn btn-default" id="addRow">+</button>
-				<button class="btn btn-success" id="action">Пуск</button>
+				<button class="btn btn-default pull-left mr10" id="addRow">+</button>
+				<button class="btn btn-success pull-left mr10" id="action">Пуск</button>
 				<!--<button class="btn btn-info">Шаг вперед</button>-->
+				<select id="workBenchIntervalTime" class="form-control">
+					<option value="10">Сверх быстро</option>
+					<option value="100" selected>Быстро</option>
+					<option value="500">Нормально</option>
+					<option value="1000">Медлено</option>
+				</select>
 			</div>
-			<table id="commands" class="mb20">
-				<tr>
-					<td>Номер</td>
-					<td>Команда</td>
-					<td>Отсылка</td>
-					<td>Комментарии</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>
-						<select name="command[]">
-							<option value="0"></option>
-							<option value="1" selected><-</option>
-							<option value="2">-></option>
-							<option value="3">V метка</option>
-							<option value="4">X Удалить</option>
-							<option value="5">? Переход</option>
-							<option value="6">! Стоп</option>
-						</select>
-					</td>
-					<td>
-						<input type="text" class="toRow">
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<button class="btn btn-danger delete">-</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>
-						<select name="command[]">
-							<option value="0"></option>
-							<option value="1"><-</option>
-							<option value="2">-></option>
-							<option value="3" selected>V метка</option>
-							<option value="4">X Удалить</option>
-							<option value="5">? Переход</option>
-							<option value="6">! Стоп</option>
-						</select>
-					</td>
-					<td>
-						<input type="text" class="toRow">
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<button class="btn btn-danger delete">-</button>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>
-						<select name="command[]">
-							<option value="0"></option>
-							<option value="1" selected><-</option>
-							<option value="2">-></option>
-							<option value="3">V метка</option>
-							<option value="4">X Удалить</option>
-							<option value="5">? Переход</option>
-							<option value="6">! Стоп</option>
-						</select>
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<button class="btn btn-danger delete">-</button>
-					</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>
-						<select name="command[]">
-							<option value="0"></option>
-							<option value="1"><-</option>
-							<option value="2">-></option>
-							<option value="3" selected>V метка</option>
-							<option value="4">X Удалить</option>
-							<option value="5">? Переход</option>
-							<option value="6">! Стоп</option>
-						</select>
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<input type="text">
-					</td>
-					<td>
-						<button class="btn btn-danger delete">-</button>
-					</td>
-				</tr>
+			<table id="commands" class="mb20 table">
+				<thead>
+					<tr>
+						<th>Номер</th>
+						<th>Команда</th>
+						<th>Отсылка</th>
+						<th>Комментарии</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
 			</table>
 			<div class="positionTracker mb20" id="outputPositionBlock">
 				<div class="memory-block"></div>
