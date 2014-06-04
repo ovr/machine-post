@@ -1,4 +1,9 @@
 .memory {
+	-webkit-user-select: none; /* user-select -- это нестандартное свойство */
+	-moz-user-select: none;    /* поэтому нужны префиксы */
+	-ms-user-select: none;
+	-o-user-select: none; /* не поддерживается, просто на будущее */
+
 	float: left;
 	overflow: hidden;
 }
