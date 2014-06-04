@@ -44,9 +44,17 @@ ns('App.view.Index', Backbone.View.extend({
         this.$commands.table.addRow();
         this.$commands.table.addRow();
     },
+    criticalMessage: function(message) {
+        if (console.log) {
+            console.log(message);
+        }
+
+        alert(message);
+        this.stop();
+    },
     onActionClick: function(e) {
         if (this.status) {
-            this.pause();
+            this.stop();
         } else {
             this.start();
         }
@@ -70,8 +78,7 @@ ns('App.view.Index', Backbone.View.extend({
                 break;
             case 5:
                 if ($command.get('toRow') == undefined || $command.get('toRow') == '') {
-                    alert('Невозможный переход');
-                    this.pause();
+                    return this.criticalMessage('Невозможный переход');
                 }
 
                 var inputArray = $command.get('toRow').split(',');
@@ -88,7 +95,7 @@ ns('App.view.Index', Backbone.View.extend({
                 return true;
                 break;
             case 6:
-                this.pause();
+                this.stop();
                 break;
         }
 
@@ -100,7 +107,7 @@ ns('App.view.Index', Backbone.View.extend({
         }
 
         if (this.lastNumber < this.currentRow) {
-            this.pause();
+            this.stop();
         }
     },
     recountRows: function() {
@@ -132,7 +139,7 @@ ns('App.view.Index', Backbone.View.extend({
         this.syncMemoryPanels();
         this.workBench = setInterval($.proxy(this.workBenchProcess, this), this.workBenchIntervalTime);
     },
-    pause: function() {
+    stop: function() {
         this.status = false;
 
         this.$actionButton.html('Старт');

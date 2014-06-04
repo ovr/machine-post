@@ -11,10 +11,22 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
         this.render();
     },
     prev: function() {
-        this.onLeftButtonClick();
+        if (this.currentPosition-1 >= 0) {
+            this.currentPosition--;
+            this.setCurrentByPosition(this.currentPosition);
+            return true;
+        }
+
+        app.layout.$index.criticalMessage('Некуда шагнуть влево');
     },
     next: function() {
-        this.onRightButtonClick();
+        if (this.currentPosition+1 <= this.maxPosition) {
+            this.currentPosition++;
+            this.setCurrentByPosition(this.currentPosition);
+            return true;
+        }
+
+        app.layout.$index.criticalMessage('Некуда шагнуть вправо');
     },
     render: function() {
         this.$memoryPanel = new App.views.blocks.MemoryPanel({$el: this.$('.memory-block')});
