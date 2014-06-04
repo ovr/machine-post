@@ -126,6 +126,7 @@ ns('App.view.Index', Backbone.View.extend({
         this.status = true;
 
         this.$actionButton.html('Стоп');
+        this.$commands.table.clearSuccess();
         this.currentRow = this.$commands.table.$el.find('tbody tr:first').attr('class').split('_')[1];
         this.recountRows();
         this.syncMemoryPanels();

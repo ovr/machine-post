@@ -13,8 +13,11 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
     getRow: function(row) {
         return this.$el.find('tr.row_' + row);
     },
-    setActiveRow: function(row) {
+    clearSuccess: function() {
         this.$('.success').removeClass('success');
+    },
+    setActiveRow: function(row) {
+        this.clearSuccess();
         this.getRow(row).addClass('success');
     },
     addRow: function() {
