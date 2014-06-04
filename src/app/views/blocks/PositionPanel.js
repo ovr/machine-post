@@ -4,8 +4,8 @@ ns('App.views.blocks.PositionPanel', Backbone.View.extend({
         'click .right button': 'onRightButtonClick',
         'click .memory div': 'onMemoryCellClick'
     },
-    currentPosition: 10,
-    maxPosition: 19,
+    currentPosition: 20,
+    maxPosition: 41,
     initialize: function (opts) {
         this.$el = opts.$el;
         this.render();

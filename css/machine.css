@@ -2,6 +2,15 @@
 	float: left;
 	overflow: hidden;
 }
+.memory .cell span {
+	position: relative;
+	top: -24px;
+	font-size: 12px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 36px;
+}
 .memory .cell {
 	width: 40px;
 	height: 40px;
@@ -12,7 +21,7 @@
 .memory .cell.active {
 	background-color: #00ffff;
 }
-.memory .cell.active:before {
+.memory .cell.active:after {
 	content: 'V';
 	font-size: 30px;
 	line-height: 40px;
@@ -62,4 +71,16 @@
 }
 .mr10 {
 	margin-right: 10px;
+}
+
+.memory-block {
+	width: 800px;
+	float: left;
+	overflow-x: scroll;
+}
+
+.memory.swiper-container {
+	position: relative;
+	height: 60px;
+	padding-top: 20px;
 }
