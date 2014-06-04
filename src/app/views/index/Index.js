@@ -53,6 +53,7 @@ ns('App.view.Index', Backbone.View.extend({
     },
     workBenchProcess: function() {
         var $command = this.$commands.getCommandByRowId(this.currentRow);
+        this.$commands.table.setActiveRow(this.currentRow);
 
         switch ($command.get('value')) {
             case 1:

@@ -13,6 +13,10 @@ ns('App.views.blocks.CommandsTable', Backbone.View.extend({
     getRow: function(row) {
         return this.$el.find('tr.row_' + row);
     },
+    setActiveRow: function(row) {
+        this.$('.success').removeClass('success');
+        this.getRow(row).addClass('success');
+    },
     addRow: function() {
         window.app.layout.$index.lastNumber++;
         var id = window.app.layout.$index.lastNumber;
