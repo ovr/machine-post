@@ -99,7 +99,7 @@ ns('App.view.Index', Backbone.View.extend({
             this.currentRow++;
         }
 
-        if (this.rowCounts < this.currentRow) {
+        if (this.lastNumber < this.currentRow) {
             this.pause();
         }
     },
